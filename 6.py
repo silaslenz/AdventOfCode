@@ -34,4 +34,5 @@ while len(set(configurations)) == len(configurations):
     configurations.append(','.join(str_distribution))
     distribution = spread_out(distribution, distribution[find_max(distribution)], find_max(distribution))
 print(configurations)
-print(len(configurations)-1)
+print("Cycles before duplicate", len(configurations)-1)
+print("Loop size", len(configurations)-1 - configurations.index(configurations[-1]))
