@@ -6,12 +6,9 @@ use std::collections::HashSet;
 fn main() -> Result<()>{
     let mut sum: i32 = 0;
     let mut seen: HashSet<i32> = HashSet::new();
-    let mut input: Vec<i32> = Vec::new();
 
     let file = try!(File::open("input"));
-    for line in BufReader::new(file).lines() {
-        input.push(line.unwrap().parse().unwrap());
-    }
+    let input: Vec<i32>  = BufReader::new(file).lines().map(|line| line.unwrap().parse::<i32>().unwrap()).collect();
 
     'outer: loop{
         for number in &input{
