@@ -3,4 +3,6 @@
 
 Doing one language each day:
 
-1. Rust
+| Day | Language | Timings (s) | Comments |
+| --- | -------- | ----------- | -------- |
+| 1 | Rust | P1: 0.01, P2: 0.17 | A bit verbose, but some cool modern features (interresting error handling, nice data structures, map/filter etc). Seems a bit like a mixture between Kotlin and C++. Slow compile times. Turning on compiler optimizations makes an order of magnitude difference in runtime (timings are with -O), slightly faster than an equivalent Python implementation. |
