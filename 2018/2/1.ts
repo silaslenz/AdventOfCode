@@ -7,8 +7,8 @@ const rl = readline.createInterface({
 });
 
 function has_duplicate(arr: Array<number>, duplicates: number){
-    return arr.filter((a,i,b) =>
-          arr.filter(v => v===a).length === duplicates
+    return arr.filter((item) =>
+          arr.filter(v => v===item).length === duplicates
     ).length !== 0;
 }
 
