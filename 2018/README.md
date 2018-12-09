@@ -10,9 +10,10 @@ Doing one previously unfamiliar language each day:
 | 3 | C#(Mono) | P1: 0.14, P2: 0.14 | Actually pretty nice, fast compiler (on Linux!), expected features (string splitting, dynamic lists, map/reduce etc) are available and seem to work as expected, except for the slightly unusual syntax and capitalised functions. |
 | 4 | Go | P1: 0.00, P2: 0.00 | Had a quite frustrating time trying to solve this in Haskell/Lisp. Turns out learning these is going to take more than half an hour during a lecture... Fell back on Go which I used very briefly before. Turned out to be a quite pleasant experience. Special bonus points for the compiler, it provides very helpful feedback on errors (in only one line!) and also fails you for bad practice stuff (unused variables etc). Feels like a more hand-holdy version of Rust, which is both good and bad. Seems fast, but I don't have anything to compare to this time. |
 | 5 | Perl | P1: 0.58, P2: 11.71 | Got stuck for a while due to perl appearantly including the newline char when reading line by line. Compiler errors are sometimes terrible (missing a ';' will give totally unrelated errors for some of the following rows), sometimes pretty useful (did you miss 'my'?). Manages to be over twice as slow compared to the same approach in Python for part 1, five times as slow in part 2. While it wasn't necessarily bad to program in I couldn't find a reason to use this instead of Python. Installing stuff using cpan only worked in root mode for some reason, installing the library through the package manager didn't work either. |
+| 6 | Ruby | P1: 2.98, P2: 1.27 | I wanted something easy to quickly catch up a bit and selected Ruby. Turns out it was a nice choise: flexible, quite compact code, great standard library. Could see using this instead of Python sometimes, it was actually quite fun to program in! |
 
 
 ## Notes
 Timings will need to be redone, they are not all measured on the same machine.
 
-Pontentially planned languages: Erlang, Clojure/LISP, Prolog, OCaml,Haskell, Scala, Ruby
+Pontentially planned languages: Erlang, Clojure/LISP, Prolog, OCaml, Haskell, Scala.
