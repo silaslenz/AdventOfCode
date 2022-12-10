@@ -7,6 +7,7 @@ fun main() {
     stacks.forEach { print(it[0]) }
 }
 
+operator fun <T> List<T>.component6() = this[5]
 private fun moveStuff(
     lines: List<String>,
     stacks: MutableList<MutableList<Char>>,
@@ -14,20 +15,21 @@ private fun moveStuff(
 ) {
     lines.forEach { line ->
         if (line.startsWith("move")) {
-            val (count, _, from, _, to) = line.split("move ")[1].split(" ")
-            if (reverse) {
-                stacks[to.toInt() - 1].addAll(0, stacks[from.toInt() - 1].take(count.toInt()).reversed())
-            } else {
-                stacks[to.toInt() - 1].addAll(0, stacks[from.toInt() - 1].take(count.toInt()))
-            }
-            stacks[from.toInt() - 1].subList(0, count.toInt()).clear()
+            val (_, count, _, from, _, to) = line.split(" ")
+            val countInt = count.toInt()
+            val fromInt = from.toInt() - 1
+            val toInt = to.toInt() - 1
+
+            val cratesToMove = stacks[fromInt].take(countInt).toMutableList()
+            if (reverse) cratesToMove.reverse()
+
+            stacks[toInt].addAll(0, cratesToMove)
+            stacks[fromInt].subList(0, countInt).clear()
         }
     }
 }
 
-private fun getStacks(
-    lines: List<String>,
-): MutableList<MutableList<Char>> {
+private fun getStacks(lines: List<String>): MutableList<MutableList<Char>> {
     val stacks = mutableListOf<MutableList<Char>>()
 
     for (line in lines) {
@@ -37,10 +39,11 @@ private fun getStacks(
         (1..line.length step 4).forEach { index ->
             val crate = line[index]
             if (crate != ' ' && !crate.isDigit()) {
-                while (stacks.size < index / 4 + 1) {
+                val stackIndex = (index - 1) / 4
+                while (stacks.size <= stackIndex) {
                     stacks.add(mutableListOf())
                 }
-                stacks[(index - 1) / 4].add(crate)
+                stacks[stackIndex].add(crate)
             }
         }
     }
